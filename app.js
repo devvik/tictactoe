@@ -1,11 +1,25 @@
 $(document).ready(function(){
-    $('input[type=text]').change(function(){
-        console.log($(this).val());
-        let enteredValue = $(this).val();
-        console.log(enteredValue);
-        if (enteredValue !== x || enteredValue !== 0) {
-            //$(this).val() =  '';
-            alert ("Only valid entries are x or 0. Please retry.");
-        }
+    let player = 0; // 0 = 'X', 1 = 'O'
+    let turns = 0; 
+    $('.box').click(function() {
+        if (!$(this).val()) { 
+          if (player) {
+            $(this).val("O");
+          } else {
+            $(this).val("X");
+          }
+          turns++;
+          player = turns % 2;
+          evaluateBoard();
+       }
     });
+
+    function evaluateBoard() {
+      console.log("looking for win")
+      if (($('#r0c0').val() === $('#r0c1').val()) && 
+          ($('#r0c0').val() === $('#r0c2').val())) {
+        console.log("Winner: " + $('#r0c0').val())
+      }
+    }
+
 });
