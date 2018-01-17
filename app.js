@@ -53,8 +53,8 @@ $(document).ready(function(){
             console.log("Winner: " + $('#r0c0').val());
         }
         //diagonal from bottom left corner has same value
-        if (($('#2c2').val() === $('#r1c1').val()) && ($('#r2c2').val() === $('#r0c0').val())) {
-            console.log("Winner: " + $('#r2c2').val());
+        if (($('#r2c0').val() === $('#r1c1').val()) && ($('#r2c0').val() === $('#r0c2').val())) {
+            console.log("Winner: " + $('#r2c0').val());
         }
     }
 
